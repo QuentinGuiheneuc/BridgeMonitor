@@ -16,5 +16,8 @@ namespace AppPontChaban.Models
 
         [JsonProperty("reopening_date")]
         public DateTime ReopeningDate { get; set; }
+
+        [JsonProperty("Risquedebouchons")]
+        public string Risquedebouchons { get; set; }
     }
 }

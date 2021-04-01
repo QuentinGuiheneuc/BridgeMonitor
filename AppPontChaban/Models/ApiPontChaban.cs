@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System;
 using System.Collections;
+using System.Linq;
 
 namespace AppPontChaban.Models
 {
@@ -33,10 +34,20 @@ namespace AppPontChaban.Models
 
                 if (result == 1)
                 {
+                    var heurs = itmeList.ClosingDate.Hour;
+                    if (heurs >= 7 && heurs <= 9 || heurs >= 17 && heurs <= 19)
+                    {
+                        itmeList.Risquedebouchons = "Elevé";
+                    }else
+                    {
+                        itmeList.Risquedebouchons = "Faible";
+                    }
+                    
                     liste.Add(itmeList);
                 }
             }
-            return liste;
+            List<FormatApi> SortedList = liste.OrderBy(o => o.ClosingDate).ToList();
+            return SortedList;
         }
         public static List<FormatApi> FermeturesPasser() {
             List<FormatApi> liste = new List<FormatApi>();
@@ -50,7 +61,8 @@ namespace AppPontChaban.Models
                     liste.Add(itmeList);
                 }
             }
-            return liste;
+            List<FormatApi> SortedList = liste.OrderBy(o => o.ClosingDate).ToList();
+            return SortedList;
         }
         public static ArrayList FermeturesPasserANDAVeunir()
         {
