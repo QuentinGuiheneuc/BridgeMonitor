@@ -3,6 +3,53 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Toutes Les Fermetures</h1>
+    <h1 class="display-3">Toutes Les Fermetures</h1>
+    <h1 class="display-4">Les Fermetures non Passer</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nom du bateau ou évènement responsable de la fermeture</th>
+                <th scope="col">Date Fermeture</th>
+                <th scope="col">Durée de la prochaine fermeture</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model[0])
+                {
+                        <tr>
+                            <td>@item.BoatName</td>
+                            <td>@item.ReopeningDate</td>
+                            <th>@item.ClosingDate</th>
+                        </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <h1 class="display-4">Les Fermetures Passer</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nom du bateau ou évènement responsable de la fermeture</th>
+                <th scope="col">Date Fermeture</th>
+                <th scope="col">Durée de la prochaine fermeture</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model[1])
+                {
 
+                        <tr>
+                            <td>@item.BoatName</td>
+                            <td>@item.ReopeningDate</td>
+                            <th>@item.ClosingDate</th>
+                        </tr>
+
+                }
+            }
+
+
+        </tbody>
+    </table>
 </div>

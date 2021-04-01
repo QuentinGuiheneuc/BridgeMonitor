@@ -17,10 +17,11 @@ namespace AppPontChaban.Controllers
         {
             _logger = logger;
         }
-
+        
         public IActionResult Index()
         {
-            return View();
+            var Pont = ApiPontChaban.FermeturesAVeunirSelectNumbr(1);
+            return View(Pont);
         }
 
         public IActionResult Privacy()

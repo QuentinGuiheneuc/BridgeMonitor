@@ -20,7 +20,8 @@ namespace AppPontChaban.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var Pont = ApiPontChaban.FermeturesPasserANDAVeunir();
+            return View(Pont);
         }
 
         public IActionResult Privacy()

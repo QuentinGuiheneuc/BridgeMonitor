@@ -10,28 +10,21 @@
                 <th scope="col">Date Fermeture</th>
                 <th scope="col">Date Réouverture</th>
                 <th scope="col">Nom du bateau ou évènement responsable de la fermeture</th>
-                <th scope="col">Durée de la prochaine fermeture</th>
+                <th scope="col">Durée de la fermeture</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>twitter</td>
-            </tr>
+            @{
+                foreach (var item in Model)
+                {
+                        <tr>
+                            <th>@item.ClosingDate</th>
+                            <td>@item.ReopeningDate</td>
+                            <td>@item.BoatName</td>
+                            <td></td>
+                        </tr>              
+                }
+            }
         </tbody>
     </table>
 </div>
